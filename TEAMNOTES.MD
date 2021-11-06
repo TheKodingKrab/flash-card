@@ -22,6 +22,9 @@ These are dedicated status check-ins as this is a multi-week project.
   * https://h5p.org/flashcards#example=733
  
 - A hand drawn / computer sketch / XD / some annotation visually of what needs to be done or what pieces get broken out. This could be drawn on over top of a screen shot of the item or a photo of whiteboard sketches. Whatever make the most sense to you.
+
+* ![Whiteboard drawing of the sketch](https://user-images.githubusercontent.com/54961655/140581038-10c788ee-e080-4ac7-bebd-bab248d2a23a.jpg)
+=======
   * Image:
 
 - Initial questions / unknowns
