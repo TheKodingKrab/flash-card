@@ -24,7 +24,7 @@ These are dedicated status check-ins as this is a multi-week project.
 - A hand drawn / computer sketch / XD / some annotation visually of what needs to be done or what pieces get broken out. This could be drawn on over top of a screen shot of the item or a photo of whiteboard sketches. Whatever make the most sense to you.
 
   * Image:
-* ![Whiteboard drawing of the sketch](https://user-images.githubusercontent.com/54961655/140581038-10c788ee-e080-4ac7-bebd-bab248d2a23a.jpg)
+ ![Whiteboard drawing of the sketch](https://user-images.githubusercontent.com/54961655/140581038-10c788ee-e080-4ac7-bebd-bab248d2a23a.jpg)
 
 
 - Initial questions / unknowns
@@ -46,7 +46,7 @@ These are dedicated status check-ins as this is a multi-week project.
   * Correct Answer
   
 - What CSS / styling unknowns are there presently?
-  *
+  * The composition
 
 - What states does it have? can you click / hover to engage with it?
   * Click to check the correct answer
