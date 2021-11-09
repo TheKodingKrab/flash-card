@@ -37,6 +37,7 @@ These are dedicated status check-ins as this is a multi-week project.
   * Question
   * Space for Answer 
   * Check Button-- Correct/Incorrect
+  * Retry button
   
 - What properties do you expect these to have?
 
@@ -44,6 +45,7 @@ These are dedicated status check-ins as this is a multi-week project.
   * Image
   * Question
   * Correct Answer
+  * Button
   
 - What CSS / styling unknowns are there presently?
   * The composition
