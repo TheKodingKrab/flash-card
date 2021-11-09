@@ -1,3 +1,3 @@
-import { RenameMe } from './src/RenameMe.js';
+import { RenameMe } from './src/KrustyKard.js';
 
 customElements.define(RenameMe.tag, RenameMe);
