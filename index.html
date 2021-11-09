@@ -39,13 +39,14 @@
     <li><a href="/hax.html">HAX, card demo</a></li>
   </ul>
   <div class="wrapper">
-    <rename-me need="joy">Some inner text that will render out</rename-me>
+    <krusty-kard need="joy">Some inner text that will render out</krusty-kard>
     <word-count>
-      <rename-me need="nothing"><div>You feel much shame.</div></rename-me>
+      <krusty-kard need="nothing"><div>You feel much shame.</div></krusty-kard>
     </word-count>
   </div>
   <script type="module">
-    import "./rename-me.js";
+    import "./krusty-kard.js";
+    // eslint-disable-next-line import/no-extraneous-dependencies
     import "@lrnwebcomponents/word-count/word-count.js";
   </script>
 </body>
