@@ -1,3 +1,6 @@
+// Booleans/Boolean states for the try button
+// Reset components: Custom Events
+
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
 
@@ -19,6 +22,7 @@ export class RenameMe extends LitElement {
   static get properties() {
     return {
       need: { type: String, reflect: true },
+      validAnswers: { type: Array, reflect: true },
     };
   }
 
