@@ -9,7 +9,7 @@ import { LitElement, html, css } from 'lit';
 export class RenameMe extends LitElement {
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
-    return 'rename-me';
+    return 'krusty-kard';
   }
 
   // HTMLElement life-cycle, built in; use this for setting defaults
