@@ -3,15 +3,15 @@ import { html } from 'lit';
 import '../krusty-kard.js';
 
 export default {
-  title: 'Rename me',
-  component: 'rename-me',
+  title: 'Krusty Kard',
+  component: 'krusty-kard',
   argTypes: {
     need: { control: 'text' },
   },
 };
 
 function Template({ need = 'rename', slot }) {
-  return html` <rename-me need="${need}"> ${slot} </rename-me> `;
+  return html` <krusty-kard need="${need}"> ${slot} </krusty-kard> `;
 }
 export const Card = Template.bind({});
 
