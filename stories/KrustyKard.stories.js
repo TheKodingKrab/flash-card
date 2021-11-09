@@ -1,6 +1,6 @@
 import { html } from 'lit';
 
-import '../rename-me.js';
+import '../krusty-kard.js';
 
 export default {
   title: 'Rename me',
