@@ -58,8 +58,21 @@ These are dedicated status check-ins as this is a multi-week project.
   * The user should be able to change the answer and select the check button.
   
 ### Check-in 2
-- 
-
+- What did we accomplish?
+  * We renames files, tags- naming conventions.
+  * Added files for the future and gathered information to make a baseline.
+  
+- Next steps:
+  * Taylor: Support for an image with slotted content, images connected to the questions
+    --Should work with or without an image; this could also be slotted material so that it can be anything
+    --Support for an image / slotted area of flexible content, question being asked, right answer, ability to change color
+  * Hannah: Image to work with or without an image
+  * Colton: Try again and click/retry button
+   --This comp does not have a button for "try again" but needs one for accessibility
+   --Must visualize state for correct and incorrect
+  * Evan:
+    --Demo must have multiple flash cards listed on it and load data in from a JSON blob using .map function to print out multiples
+    --i18n support so that labels in element are translatable
 
 ### Check-in 3
 - 
