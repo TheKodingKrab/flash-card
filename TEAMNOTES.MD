@@ -74,6 +74,14 @@ These are dedicated status check-ins as this is a multi-week project.
     --Demo must have multiple flash cards listed on it and load data in from a JSON blob using .map function to print out multiples
     --i18n support so that labels in element are translatable
 
+  - Progress: 
+  * Corrected issues with excess Files and unneeded code. Created a proper and logical file structure. 
+  * Imported our previous button and updated the button's functionality. 
+  * Added some I18 functionality and support for multiple different languages. 
+  * Updated visual and stylistic elements to make it more accesible and appealing visually.
+  
+     
+
 ### Check-in 3
 - 
 
