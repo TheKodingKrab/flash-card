@@ -63,8 +63,8 @@ export class KrustyKard extends LitElement {
         display: block;
       }
       :host([need='joy']) {
-        color: yellow;
-        background-color: black;
+        color: red;
+        background-color: green;
       }
     `;
   }
