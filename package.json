@@ -21,11 +21,12 @@
     "start": "web-dev-server"
   },
   "dependencies": {
+    "@lrnwebcomponents/i18n-manager": "^4.0.1",
     "@lrnwebcomponents/simple-colors": "^4.0.4",
+    "@lrnwebcomponents/simple-icon": "^4.0.4",
     "lit": "^2.0.2"
   },
   "devDependencies": {
-    "@thekodingkrab/cta-button": "^0.0.2",
     "@babel/preset-env": "^7.15.6",
     "@custom-elements-manifest/analyzer": "^0.4.17",
     "@lrnwebcomponents/deduping-fix": "^4.0.0",
