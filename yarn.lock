@@ -1511,7 +1511,7 @@
     "@lrnwebcomponents/simple-colors" "^2.8.0"
     lit-element "2.4.0"
 
-"@lrnwebcomponents/simple-icon@^4.0.0", "@lrnwebcomponents/simple-icon@^4.0.4":
+"@lrnwebcomponents/simple-icon@^4.0.4":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@lrnwebcomponents/simple-icon/-/simple-icon-4.0.4.tgz#4e16b73d0b9bd81440c98c70f5e2a2e8447971e8"
   integrity sha512-u0RpezEZHNkAHZwne++Cf5kZs0k/q0BFuSyGLpbzs98qRfZn281L5MlKoQfgqE8Or5ynfylQIMtqekX1v3sd3Q==
@@ -2076,14 +2076,6 @@
   dependencies:
     ejs "^2.6.1"
     magic-string "^0.25.0"
-
-"@thekodingkrab/cta-button@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@thekodingkrab/cta-button/-/cta-button-0.0.2.tgz#4b68a7c3c5b7cafaedf9ecdf90c0e148da8afc79"
-  integrity sha512-/25DZmqh5/Jc7j2Dofy0LtPVKK0oUN7L88qUgJPp+a35WeHHtRxinn73sgAc6g/U2QS4G1ThmK0j0lsYbE3ulg==
-  dependencies:
-    "@lrnwebcomponents/simple-icon" "^4.0.0"
-    lit "^2.0.0-rc.4"
 
 "@types/accepts@*":
   version "1.3.5"
@@ -5272,7 +5264,7 @@ lit@2.0.0:
     lit-element "^3.0.0"
     lit-html "^2.0.0"
 
-lit@2.0.2, lit@^2.0.0, lit@^2.0.0-rc.2, lit@^2.0.0-rc.4, lit@^2.0.2:
+lit@2.0.2, lit@^2.0.0, lit@^2.0.0-rc.2, lit@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/lit/-/lit-2.0.2.tgz#5e6f422924e0732258629fb379556b6d23f7179c"
   integrity sha512-hKA/1YaSB+P+DvKWuR2q1Xzy/iayhNrJ3aveD0OQ9CKn6wUjsdnF/7LavDOJsKP/K5jzW/kXsuduPgRvTFrFJw==
