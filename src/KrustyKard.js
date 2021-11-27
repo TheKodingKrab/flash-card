@@ -16,7 +16,11 @@ export class KrustyKard extends LitElement {
   // HTMLElement life-cycle, built in; use this for setting defaults
   constructor() {
     super();
-    this.need = 'all need to succeed';
+    this.t = {
+      yourAnswer: 'Your answer',
+      checkAnswer: 'Check answer',
+      restartActivity: 'Restart activity',
+    };
   }
 
   // properties that you wish to use as data in HTML, CSS, and the updated life-cycle
@@ -73,8 +77,6 @@ export class KrustyKard extends LitElement {
   // HTML - specific to Lit
   render() {
     return html`
-      <h1>Make me awesome</h1>
-      <p>Build the future we ${this.need}.</p>
       <flash-card-body></flash-card-body>
       <slot></slot>
     `;

@@ -10,36 +10,29 @@ export class FlashcardBody extends I18NMixin(LitElement) {
 
   static get styles() {
     return css`
-      :host {
-        display: inline-block;
-        padding: 5px;
-        --ctabuttonColor: black;
-        --ctabuttonBackgroundColor: white;
-        --ctabuttonActiveBackgroundColor: red;
-        --ctabuttonActiveColor: white;
-        --ctabuttonDisabledBackgroundColor: grey;
-        --ctabuttonFontFamily: 'Times New Roman', sans-serif;
+      button#check {
+        background-color: #0066a2;
+        color: white;
+        font-size: 12px;
+        margin: none;
+        padding: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border-width: 1px;
       }
-      .assignment {
-        background-color: var(--ctabuttonBackgroundColor: white;);
-        color: var(--ctabuttonColor);
-        font-size: 25px;
-        font-family: var(--ctabuttonFontFamily);
-        border-radius: 12px;
-        border: 2px solid black;
-        text-decoration: none;
-        padding: 6px;
+
+      button#retry {
+        background-color: #0066a2;
+        color: white;
+        font-size: 12px;
+        margin: none;
+        padding: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border-width: 1px;
       }
-      .assignment:hover,
-      .assignment:focus,
-      .assignment:active {
-        background-color: var(--ctabuttonActiveBackgroundColor);
-        color: var(--ctabuttonActiveColor);
-      }
-      .assignment:disabled {
-        color: var(--ctabuttonColor);
-        background-color: var(--ctabuttonDisabledBackgroundColor);
-        cursor: not-allowed;
+
+      button:hover {
+        opacity: 0.7;
+        cursor: pointer;
       }
     `;
   }
@@ -55,10 +48,9 @@ export class FlashcardBody extends I18NMixin(LitElement) {
 
   constructor() {
     super();
-    this.title = 'Click Here!';
+    this.title = 'Check Answer';
     this.disabled = false;
-    this.iconLeft = 'hardware:keyboard-arrow-left';
-    this.iconRight = 'hardware:keyboard-arrow-right';
+    this.iconLeft = 'done';
   }
 
   render() {
@@ -69,9 +61,14 @@ export class FlashcardBody extends I18NMixin(LitElement) {
         tabindex="-1"
         rel="noopener noreferrer"
       >
-        <button class="assignment" ?disabled="${this.disabled}">
-          <simple-icon-lite icon="${this.iconRight}"></simple-icon-lite> ${this
-            .title}
+        <button id="check">
+          ${this.title}
+          <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
+        </button>
+        <br />
+        <br />
+        <button id="retry">
+          ${this.title}
           <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
         </button>
       </a>
