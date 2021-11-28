@@ -25,8 +25,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       localesPath: new URL('../locales/', import.meta.url).href,
       locales: ['es', 'fr', 'de'],
     });
-    this.speech = new SpeechSynthesisUtterance();
-    this.speech.lang = navigator.language.substring(0, 2);
+    this.speech = navigator.language.substring(0, 2);
     this.i18store = window.I18ManagerStore.requestAvailability();
     this.speech.lang = this.i18store.lang;
   }
@@ -99,8 +98,12 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
   checkUserAnswer() {
     const side = this.back ? 'front' : 'back';
     const comparison = this.shadowRoot
-      .querySelector(`slot[name="${side}"]`)
+      .querySelector(`[name="${side}"]`)
+      .assignedNodes({ flatten: true })[0]
+      .querySelector(`[name="${side}"]`)
       .assignedNodes({ flatten: true })[0].innerText;
+    this.speech.text = comparison;
+    window.speechSynthesis.speak(this.speech);
     this.correct = this.equalsIgnoringCase(comparison);
     this.showResult = true;
     this.sideToShow = !this.back ? 'back' : 'front';
@@ -127,6 +130,21 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         display: flex;
         flex-direction: column;
         align-items: center;
+      }
+      .answer-section {
+        display: flex;
+        flex-direction: row;
+        align-items: left;
+        justify-content: space-evenly;
+        width: 400px;
+        border-radius: 30px;
+        border: solid 5px black;
+        background-color: var(--simple-colors-default-theme-accent-10);
+        padding: 5px;
+      }
+      .answer-section:focus-within {
+        border-color: #9ecaed;
+        box-shadow: 0 0 10px #9ecaed;
       }
       input {
         border: none;
@@ -169,6 +187,8 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         font-family: Helvetica;
         color: black;
         font-size: 20px;
+        font-weight: normal;
+        font-size: 20px;
       }
       :host([side-to-show='front']) slot[name='back'] {
         display: none;
@@ -194,20 +214,22 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         <slot name="front"></slot>
         <slot name="back"></slot>
       </p>
-      <input
-        id="answer"
-        type="text"
-        .placeholder="${this.t.yourAnswer}"
-        @input="${this.inputChanged}"
-        .value="${this.userAnswer}"
-      />
-      <button
-        id="check"
-        ?disabled="${this.userAnswer === ''}"
-        @click="${this.checkUserAnswer}"
-      >
-        ${this.t.checkAnswer}
-      </button>
+      <div class="answer selection">
+        <input
+          id="answer"
+          type="text"
+          .placeholder="${this.t.yourAnswer}"
+          @input="${this.inputChanged}"
+          .value="${this.userAnswer}"
+        />
+        <button
+          id="check"
+          ?disabled="${this.userAnswer === ''}"
+          @click="${this.checkUserAnswer}"
+        >
+          ${this.t.checkAnswer}
+        </button>
+      </div>
 
       ${this.showResult
         ? html`<simple-icon-lite icon="${this.statusIcon}"></simple-icon-lite>
