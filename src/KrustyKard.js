@@ -72,9 +72,7 @@ export class KrustyKard extends LitElement {
   // HTML - specific to Lit
   render() {
     return html`
-      <h1>Make me awesome</h1>
-      <p>Build the future we ${this.need}.</p>
-      <flash-card-image text="trying this image" image="https://www.w3schools.com/images/w3schools_green.jpg"></flash-card-image>
+      <flash-card-image>Image</flash-card-image>
       <slot></slot>
     `;
   }
