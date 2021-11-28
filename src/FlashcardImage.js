@@ -6,20 +6,6 @@ export class FlashcardImage {
     return 'flash-card-image';
   }
 
-  constructor() {
-    super();
-    this.image = null;
-    this.text = "image text";
-  }
-
-  static get properties() {
-    return {
-      ...super.properties,
-      image: { type: Image, reflect: true },
-      text: { type: String, reflect: true },
-    };
-  }
-
   static get styles() {
     return [
       ...super.styles,
@@ -37,11 +23,39 @@ export class FlashcardImage {
     ];
   }
 
+  constructor() {
+    super();
+    this.imgSrc = 'dog';
+    this.imgTag = `https://loremflickr.com/320/240/${this.imgSrc}`;
+    this.status = 'pending';
+    this.icon = '';
+  }
+
+  static get properties() {
+    return {
+      ...super.properties,
+      imgSrc: { type: String, reflect: true, attribute: 'img-src' },
+      imgTag: { type: String },
+      status: { type: String, reflect: true },
+      icon: { type: String },
+    };
+  }
+
+  firstUpdated(changedProperties) {
+    if (super.firstUpdated) {
+      super.firstUpdated(changedProperties);
+    }
+    this.imgTag = `https://loremflickr.com/320/240/${this.imgSrc}`;
+  }
+
   render() {
     return html`
       <div>
-        <img alt="${this.text}" src="${this.image}"></img>
-        <slot> </slot>
+        <div class="overlay">
+          <div class="backgroundbox">
+            <img src="${this.imgTag}" alt="default img" />
+          </div>
+        </div>
       </div>
     `;
   }
