@@ -136,12 +136,12 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         cursor: pointer;
       }
       button:disabled {
-        opacity: 0.5;
+        opacity: 0.3;
         cursor: not-allowed;
       }
       p {
         font-family: Helvetica;
-        color: gray;
+        color: black;
         font-size: 20px;
       }
       :host([side-to-show='front']) slot[name='back'] {
