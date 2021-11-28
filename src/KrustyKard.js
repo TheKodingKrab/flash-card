@@ -36,7 +36,7 @@ export class KrustyKard extends SimpleColors {
       css`
         :host {
           display: block;
-          border: 2px solid var(--simple-colors-default-theme-accent-12);
+          border: 2px solid var(--simple-colors-default-theme-accent-3);
           min-width: 320px;
           border-radius: 20px;
           padding: 20px;
@@ -54,6 +54,7 @@ export class KrustyKard extends SimpleColors {
   // HTML - specific to Lit
   render() {
     return html`
+      <krusty-image></krusty-image>
       <flash-card-body>
         <div slot="front">
           <slot name="front"></slot>

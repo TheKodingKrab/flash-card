@@ -10,7 +10,7 @@ import '@lrnwebcomponents/simple-colors';
 export class FlashcardImage extends LitElement {
   // a convention I enjoy so you can change the tag name in 1 place
   static get tag() {
-    return 'flash-card-image';
+    return 'krusty-image';
   }
 
   // CSS - specific to Lit

@@ -31,7 +31,7 @@ export class KrustyFlashCardSet extends LitElement {
   // HTML - specific to Lit
   render() {
     return html`
-      <image-prompt><slot name="back"></slot></image-prompt>
+      <krusty-image><slot name="back"></slot></krusty-image>
       <p><slot name="front"></slot></p>
       <flash-card-body><slot name="back"></slot></flash-card-body>
     `;

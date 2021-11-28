@@ -4,7 +4,7 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors';
 
 export class FlashcardBody extends I18NMixin(SimpleColors) {
   static get tag() {
-    return 'krusty-card-body';
+    return 'flash-card-body';
   }
 
   constructor() {
@@ -104,26 +104,13 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         flex-direction: column;
         align-items: center;
       }
-      .answer-section {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 300px;
-        border-radius: 20px;
-        border: solid 1px gray;
-      }
-      .answer-section:focus-within {
-        border-color: #9ecaed;
-        box-shadow: 0 0 10px #9ecaed;
-      }
       input {
         border: none;
         background-color: none;
-        padding: 10px;
+        padding: 12px;
         margin: 2px;
         border-radius: 20px;
-        font-size: 14px;
+        font-size: 13px;
       }
       input:focus {
         outline: none;
@@ -137,7 +124,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         border-radius: 20px 20px 20px 20px;
         border-width: 1px;
       }
-
       button#retry {
         background-color: #0066a2;
         color: white;
@@ -147,15 +133,13 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         border-radius: 20px 20px 20px 20px;
         border-width: 1px;
       }
-
       button:hover {
         opacity: 0.7;
         cursor: pointer;
       }
       button:disabled {
         opacity: 0.5;
-        background-color: #dddddd;
-        color: black;
+        cursor: not-allowed;
       }
       p {
         font-family: Helvetica;
