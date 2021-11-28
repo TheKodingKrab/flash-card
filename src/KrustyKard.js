@@ -3,6 +3,7 @@
 
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
+import './FlashcardBody.js';
 
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added
@@ -63,8 +64,8 @@ export class KrustyKard extends LitElement {
         display: block;
       }
       :host([need='joy']) {
-        color: red;
-        background-color: green;
+        color: yellow;
+        background-color: black;
       }
     `;
   }
@@ -74,6 +75,7 @@ export class KrustyKard extends LitElement {
     return html`
       <h1>Make me awesome</h1>
       <p>Build the future we ${this.need}.</p>
+      <flash-card-body></flash-card-body>
       <slot></slot>
     `;
   }

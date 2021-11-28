@@ -1,186 +1,81 @@
 import { LitElement, html, css } from 'lit';
 import { I18NMixin } from '@lrnwebcomponents/i18n-manager/lib/I18NMixin.js';
+import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
+import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
 export class FlashcardBody extends I18NMixin(LitElement) {
   static get tag() {
-    return 'fcard-body';
-  }
-
-  constructor() {
-    super();
-    this.back = false;
-    this.showResult = false;
-    this.statusIcon = '';
-    this.sideToShow = 'front';
-    this.userAnswer = '';
-    this.t = {
-      yourAnswer: 'Your Answer',
-      checkAnswer: 'Check Answer',
-      restartActivity: 'Restart Activity',
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath: new URL('../locales', import.meta.url).href,
-      locales: ['es'],
-    });
-  }
-
-  static get properties() {
-    return {
-      ...super.properties,
-      back: { type: Boolean, reflect: true },
-      sideToShow: { type: String, reflect: true, attribute: 'side-to-show' },
-      userAnswer: { type: String, attribute: 'user-answer' },
-      correct: { type: Boolean, reflect: true },
-      showResult: { type: Boolean, attribute: 'show-result', reflect: true },
-      statusIcon: { type: String, attribute: false },
-    };
-  }
-
-  updated(changedProperties) {
-    if (super.updated) {
-      super.updated(changedProperties);
-    }
-    changedProperties.forEach((oldValue, propName) => {
-      if (propName === 'correct') {
-        this.statusIcon = this[propName]
-          ? 'icons:check-circle'
-          : 'icons:cancel';
-      }
-      if (propName === 'back') {
-        this.sideToShow = this[propName] ? 'back' : 'front';
-      }
-      if (propName === 'showResult' && this[propName]) {
-        import('@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js');
-        import('@lrnwebcomponents/simple-icon/lib/simple-icons.js');
-      }
-    });
-  }
-
-  equalsIgnoringCase(text) {
-    return (
-      text.localeCompare(this.userAnswer, undefined, {
-        sensitivity: 'base',
-      }) === 0
-    );
-  }
-
-  checkUserAnswer() {
-    const side = this.back ? 'front' : 'back';
-    const comparison = this.shadowRoot
-      .querySelector(`slot[name="${side}"]`)
-      .assignedNodes({ flatten: true })[0].innerText;
-    console.log(comparison);
-    this.correct = this.equalsIgnoringCase(comparison);
-    console.log(this.correct);
-    this.showResult = true;
-    // reverse so that it swaps which slot is shown
-    this.sideToShow = !this.back ? 'back' : 'front';
-  }
-
-  inputChanged(e) {
-    this.userAnswer = e.target.value;
-  }
-
-  // reset the interaction to the defaults
-  resetCard() {
-    this.userAnswer = '';
-    this.correct = false;
-    this.showResult = false;
-    this.sideToShow = this.back ? 'back' : 'front';
+    return 'krusty-card-body';
   }
 
   static get styles() {
     return css`
       :host {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: inline-block;
+        padding: 5px;
+        --ctabuttonColor: black;
+        --ctabuttonBackgroundColor: white;
+        --ctabuttonActiveBackgroundColor: red;
+        --ctabuttonActiveColor: white;
+        --ctabuttonDisabledBackgroundColor: grey;
+        --ctabuttonFontFamily: 'Times New Roman', sans-serif;
       }
-      .answer-section {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        width: 300px;
-        border-radius: 20px;
-        border: solid 1px gray;
+      .assignment {
+        background-color: var(--ctabuttonBackgroundColor: white;);
+        color: var(--ctabuttonColor);
+        font-size: 25px;
+        font-family: var(--ctabuttonFontFamily);
+        border-radius: 12px;
+        border: 2px solid black;
+        text-decoration: none;
+        padding: 6px;
       }
-      .answer-section:focus-within {
-        border-color: #9ecaed;
-        box-shadow: 0 0 10px #9ecaed;
+      .assignment:hover,
+      .assignment:focus,
+      .assignment:active {
+        background-color: var(--ctabuttonActiveBackgroundColor);
+        color: var(--ctabuttonActiveColor);
       }
-      input {
-        border: none;
-        background-color: none;
-        padding: 10px;
-        margin: 2px;
-        border-radius: 20px;
-        font-size: 14px;
-      }
-      input:focus {
-        outline: none;
-      }
-      button#check {
-        background-color: #0a7694;
-        color: white;
-        font-size: 14px;
-        margin: none;
-        padding: 14px;
-        border-radius: 0px 20px 20px 0px;
-        border: none;
-      }
-      button#retry {
-        background-color: #0a7694;
-        color: white;
-        font-size: 14px;
-        margin: none;
-        padding: 14px;
-        border-radius: 20px;
-        border: none;
-      }
-      button:hover {
-        opacity: 0.8;
-      }
-      button:disabled {
-        opacity: 0.5;
-        background-color: #dddddd;
-        color: black;
-      }
-      p {
-        font-family: Helvetica;
-        color: gray;
-        font-weight: normal;
-        font-size: 20px;
-      }
-      :host([side-to-show='front']) slot[name='back'] {
-        display: none;
-      }
-      :host([side-to-show='back']) slot[name='front'] {
-        display: none;
-      }
-
-      :host([correct]) simple-icon-lite {
-        color: green;
-      }
-      simple-icon-lite {
-        --simple-icon-width: 50px;
-        --simple-icon-height: 50px;
-        color: red;
-      }
-
-      .sr-only {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
+      .assignment:disabled {
+        color: var(--ctabuttonColor);
+        background-color: var(--ctabuttonDisabledBackgroundColor);
+        cursor: not-allowed;
       }
     `;
   }
 
+  static get properties() {
+    return {
+      title: { type: String },
+      link: { type: String },
+      disabled: { type: Boolean, reflect: true },
+      icon: { type: String },
+    };
+  }
+
+  constructor() {
+    super();
+    this.title = 'Click Here!';
+    this.disabled = false;
+    this.iconLeft = 'hardware:keyboard-arrow-left';
+    this.iconRight = 'hardware:keyboard-arrow-right';
+  }
+
   render() {
-    return html``;
+    return html`
+      <a
+        href="${this.link}"
+        target="_blank"
+        tabindex="-1"
+        rel="noopener noreferrer"
+      >
+        <button class="assignment" ?disabled="${this.disabled}">
+          <simple-icon-lite icon="${this.iconRight}"></simple-icon-lite> ${this
+            .title}
+          <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
+        </button>
+      </a>
+    `;
   }
 }
+customElements.define(FlashcardBody.tag, FlashcardBody);
