@@ -23,8 +23,12 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     this.registerLocalization({
       context: this,
       localesPath: new URL('../locales/', import.meta.url).href,
-      locales: ['es'],
+      locales: ['es', 'fr', 'de'],
     });
+    this.speech = new SpeechSynthesisUtterance();
+    this.speech.lang = navigator.language.substring(0, 2);
+    this.i18store = window.I18ManagerStore.requestAvailability();
+    this.speech.lang = this.i18store.lang;
   }
 
   static get properties() {
@@ -42,6 +46,13 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
   updated(changedProperties) {
     if (super.updated) {
       super.updated(changedProperties);
+      changedProperties.forEach((oldValue, propName) => {
+        if (propName === 't') {
+          this.i18store = window.I18ManagerStore.requestAvailability();
+          this.speech.lang = this.i18store.lang;
+          console.log(this.speech.lang);
+        }
+      });
     }
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'correct') {
@@ -57,6 +68,21 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         import('@lrnwebcomponents/simple-icon/lib/simple-icons.js');
       }
     });
+  }
+
+  firstUpdated(changedProperties) {
+    if (super.firstUpdated) {
+      super.firstUpdated(changedProperties);
+    }
+    const btn = this.shadowRoot.querySelector('#check');
+    this.shadowRoot
+      .querySelector('#answer')
+      .addEventListener('keyup', event => {
+        if (event.keyCode === 13) {
+          event.preventDefault();
+          btn.click();
+        }
+      });
   }
 
   // Need this instead of .toUpperCase() for i18n
