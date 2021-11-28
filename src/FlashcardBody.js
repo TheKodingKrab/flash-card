@@ -70,7 +70,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
 
   // Use data-correct-answer so that parent elements will be able to
   // know if the answer was correct or incorrect
-  // We might need to add an incorrect data attribute not sure yet......
   checkUserAnswer() {
     const side = this.back ? 'front' : 'back';
     const comparison = this.shadowRoot
@@ -78,7 +77,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       .assignedNodes({ flatten: true })[0].innerText;
     this.correct = this.equalsIgnoringCase(comparison);
     this.showResult = true;
-    // reverse so that it swaps which slot is shown
     this.sideToShow = !this.back ? 'back' : 'front';
   }
 
@@ -144,7 +142,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       p {
         font-family: Helvetica;
         color: gray;
-        font-weight: normal;
         font-size: 20px;
       }
       :host([side-to-show='front']) slot[name='back'] {
@@ -157,17 +154,9 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         color: green;
       }
       simple-icon-lite {
-        --simple-icon-width: 50px;
-        --simple-icon-height: 50px;
+        --simple-icon-width: 35px;
+        --simple-icon-height: 35px;
         color: red;
-      }
-      .sr-only {
-        position: absolute;
-        left: -10000px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
       }
     `;
   }
@@ -179,22 +168,21 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         <slot name="front"></slot>
         <slot name="back"></slot>
       </p>
-      <div class="answer-section">
-        <input
-          id="answer"
-          type="text"
-          .placeholder="${this.t.yourAnswer}"
-          @input="${this.inputChanged}"
-          .value="${this.userAnswer}"
-        />
-        <button
-          id="check"
-          ?disabled="${this.userAnswer === ''}"
-          @click="${this.checkUserAnswer}"
-        >
-          ${this.t.checkAnswer}
-        </button>
-      </div>
+      <input
+        id="answer"
+        type="text"
+        .placeholder="${this.t.yourAnswer}"
+        @input="${this.inputChanged}"
+        .value="${this.userAnswer}"
+      />
+      <button
+        id="check"
+        ?disabled="${this.userAnswer === ''}"
+        @click="${this.checkUserAnswer}"
+      >
+        ${this.t.checkAnswer}
+      </button>
+
       ${this.showResult
         ? html`<simple-icon-lite icon="${this.statusIcon}"></simple-icon-lite>
             <button id="retry" @click="${this.resetCard}">
