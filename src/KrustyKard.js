@@ -17,7 +17,7 @@ export class KrustyKard extends SimpleColors {
     super();
     setTimeout(() => {
       import('./FlashcardBody.js');
-      import('./FlashcardImage.js');
+      // import('./FlashcardImage.js');
     }, 0);
   }
 
@@ -63,6 +63,7 @@ export class KrustyKard extends SimpleColors {
           <slot name="back"></slot>
         </div>
       </flash-card-body>
+      <slot></slot>
     `;
   }
 
