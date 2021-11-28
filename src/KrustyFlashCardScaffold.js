@@ -1,8 +1,8 @@
 import { LitElement, html, css } from 'lit';
 
-export class KrustyFlashCardSet extends LitElement {
+export class KrustyFlashCardScaffold extends LitElement {
   static get tag() {
-    return 'krusty-flash-card-set';
+    return 'krusty-flash-card-scaffold';
   }
 
   // HTMLElement life-cycle, built in; use this for setting defaults
