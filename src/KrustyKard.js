@@ -3,6 +3,7 @@
 
 // dependencies / things imported
 import { LitElement, html, css } from 'lit';
+import './FlashcardBody.js';
 
 // EXPORT (so make available to other documents that reference this file) a class, that extends LitElement
 // which has the magic life-cycles and developer experience below added

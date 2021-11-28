@@ -74,8 +74,30 @@ These are dedicated status check-ins as this is a multi-week project.
     --Demo must have multiple flash cards listed on it and load data in from a JSON blob using .map function to print out multiples
     --i18n support so that labels in element are translatable
 
+  - Progress: 
+  * Corrected issues with excess files and unneeded code. Created a proper and logical file structure. 
+  * Imported our previous button and updated the button's functionality. 
+  * Added some I18 functionality and support for multiple different languages. 
+  * Updated visual and stylistic elements to make it more accesible and appealing visually.
+  
+     
+
 ### Check-in 3
-- 
+- What your group got done since last check in (so last week + whenever else you work)
+   *
+-What insights you gained from the class activity to implement
+   * From the in class activity, we gained some insight on a better way to structure out the content of the card for the flashcard. We also have some import suggestions to add as an addition to our flashcard. Correct or incorrect logic also needs to be implemented in order to manage user input. There is still a lot to be done and desired.
+-What your next steps are?
+- Next steps:
+  * Taylor: 
+  * Hannah:
+  * Colton: 
+  * Evan:
+
+**Your design should be taking shape** 
+**Your logic layer should be starting to come together**
+**You should at least take a stab at modifying the haxProperties HAXSchema to map to your element and understand that relationship.**
+**TEAMNOTES.md updated to reflect the above + code to actually back up that your not writing things like "we talked a bunch" as I read these and am not dumb.**
 
 
 ### Check-in 4
