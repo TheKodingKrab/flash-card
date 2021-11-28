@@ -13,6 +13,7 @@
       margin: 0;
       padding: 50px;
       font-family: sans-serif;
+      background-color: rgb(230, 242, 253);
     }
     .wrapper {
       margin: 100px;
@@ -38,15 +39,24 @@
     <li><a href="#">Krusty Kard demo</a></li>
     <li><a href="/hax.html">HAX, card demo</a></li>
   </ul>
+  <button onclick="toggleLanguage();">Change Language</button>
   <div class="wrapper">
     <krusty-kard>
         <p slot="front">What is house in Spanish</p>
         <p slot="back">casa</p>
     </krusty-kard>
+    
+    <krusty-kard dark>
+      <p slot="front">What is butterfly in Spanish?</p>
+      <p slot="back">Mariposa</p>
+    </krusty-kard>
+
+
   </div>
   <script type="module">
     import "./krusty-kard.js";
     import "./src/FlashcardBody.js";
+    import "./src/FlashcardImage.js";    
   </script>
 </body>
 
