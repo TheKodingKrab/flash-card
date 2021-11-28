@@ -1,81 +1,196 @@
-import { LitElement, html, css } from 'lit';
 import { I18NMixin } from '@lrnwebcomponents/i18n-manager/lib/I18NMixin.js';
-import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
-import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
+import { html, css } from 'lit';
+import { SimpleColors } from '@lrnwebcomponents/simple-colors';
 
-export class FlashcardBody extends I18NMixin(LitElement) {
+export class FlashcardBody extends I18NMixin(SimpleColors) {
   static get tag() {
-    return 'krusty-card-body';
-  }
-
-  static get styles() {
-    return css`
-      :host {
-        display: inline-block;
-        padding: 5px;
-        --ctabuttonColor: black;
-        --ctabuttonBackgroundColor: white;
-        --ctabuttonActiveBackgroundColor: red;
-        --ctabuttonActiveColor: white;
-        --ctabuttonDisabledBackgroundColor: grey;
-        --ctabuttonFontFamily: 'Times New Roman', sans-serif;
-      }
-      .assignment {
-        background-color: var(--ctabuttonBackgroundColor: white;);
-        color: var(--ctabuttonColor);
-        font-size: 25px;
-        font-family: var(--ctabuttonFontFamily);
-        border-radius: 12px;
-        border: 2px solid black;
-        text-decoration: none;
-        padding: 6px;
-      }
-      .assignment:hover,
-      .assignment:focus,
-      .assignment:active {
-        background-color: var(--ctabuttonActiveBackgroundColor);
-        color: var(--ctabuttonActiveColor);
-      }
-      .assignment:disabled {
-        color: var(--ctabuttonColor);
-        background-color: var(--ctabuttonDisabledBackgroundColor);
-        cursor: not-allowed;
-      }
-    `;
-  }
-
-  static get properties() {
-    return {
-      title: { type: String },
-      link: { type: String },
-      disabled: { type: Boolean, reflect: true },
-      icon: { type: String },
-    };
+    return 'flash-card-body';
   }
 
   constructor() {
     super();
-    this.title = 'Click Here!';
-    this.disabled = false;
-    this.iconLeft = 'hardware:keyboard-arrow-left';
-    this.iconRight = 'hardware:keyboard-arrow-right';
+    this.back = false;
+    this.correct = false;
+    this.showResult = false;
+    this.statusIcon = '';
+    this.sideToShow = 'front';
+    this.userAnswer = '';
+    this.t = {
+      yourAnswer: 'Your answer',
+      checkAnswer: 'Check answer',
+      restartActivity: 'Restart activity',
+    };
+    this.registerLocalization({
+      context: this,
+      localesPath: new URL('../locales/', import.meta.url).href,
+      locales: ['es'],
+    });
   }
 
+  static get properties() {
+    return {
+      ...super.properties,
+      back: { type: Boolean, reflect: true },
+      sideToShow: { type: String, reflect: true, attribute: 'side-to-show' },
+      userAnswer: { type: String, attribute: 'user-answer' },
+      correct: { type: Boolean, reflect: true },
+      showResult: { type: Boolean, attribute: 'show-result', reflect: true },
+      statusIcon: { type: String, attribute: false },
+    };
+  }
+
+  updated(changedProperties) {
+    if (super.updated) {
+      super.updated(changedProperties);
+    }
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'correct') {
+        this.statusIcon = this[propName]
+          ? 'icons:check-circle'
+          : 'icons:cancel';
+      }
+      if (propName === 'back') {
+        this.sideToShow = this[propName] ? 'back' : 'front';
+      }
+      if (propName === 'showResult' && this[propName]) {
+        import('@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js');
+        import('@lrnwebcomponents/simple-icon/lib/simple-icons.js');
+      }
+    });
+  }
+
+  // Need this instead of .toUpperCase() for i18n
+  equalsIgnoringCase(text) {
+    return (
+      text.localeCompare(this.userAnswer, undefined, {
+        sensitivity: 'base',
+      }) === 0
+    );
+  }
+
+  // Use data-correct-answer so that parent elements will be able to
+  // know if the answer was correct or incorrect
+  checkUserAnswer() {
+    const side = this.back ? 'front' : 'back';
+    const comparison = this.shadowRoot
+      .querySelector(`slot[name="${side}"]`)
+      .assignedNodes({ flatten: true })[0].innerText;
+    this.correct = this.equalsIgnoringCase(comparison);
+    this.showResult = true;
+    this.sideToShow = !this.back ? 'back' : 'front';
+  }
+
+  // as the user types input, grab the value
+  // this way we can react to disable state among other things
+  inputChanged(e) {
+    this.userAnswer = e.target.value;
+  }
+
+  // reset the interaction to the defaults
+  resetCard() {
+    this.userAnswer = '';
+    this.correct = false;
+    this.showResult = false;
+    this.sideToShow = this.back ? 'back' : 'front';
+  }
+
+  // CSS - specific to Lit
+  static get styles() {
+    return css`
+      :host {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      input {
+        border: none;
+        background-color: none;
+        padding: 12px;
+        margin: 2px;
+        border-radius: 20px;
+        font-size: 13px;
+      }
+      input:focus {
+        outline: none;
+      }
+      button#check {
+        background-color: #0066a2;
+        color: white;
+        font-size: 12px;
+        margin: none;
+        padding: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border-width: 1px;
+      }
+      button#retry {
+        background-color: #0066a2;
+        color: white;
+        font-size: 12px;
+        margin: none;
+        padding: 10px;
+        border-radius: 20px 20px 20px 20px;
+        border-width: 1px;
+      }
+      button:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+      button:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
+      p {
+        font-family: Helvetica;
+        color: black;
+        font-size: 20px;
+      }
+      :host([side-to-show='front']) slot[name='back'] {
+        display: none;
+      }
+      :host([side-to-show='back']) slot[name='front'] {
+        display: none;
+      }
+      :host([correct]) simple-icon-lite {
+        color: green;
+      }
+      simple-icon-lite {
+        --simple-icon-width: 35px;
+        --simple-icon-height: 35px;
+        color: red;
+      }
+    `;
+  }
+
+  // HTML - specific to Lit
   render() {
     return html`
-      <a
-        href="${this.link}"
-        target="_blank"
-        tabindex="-1"
-        rel="noopener noreferrer"
+      <p id="question">
+        <slot name="front"></slot>
+        <slot name="back"></slot>
+      </p>
+      <input
+        id="answer"
+        type="text"
+        .placeholder="${this.t.yourAnswer}"
+        @input="${this.inputChanged}"
+        .value="${this.userAnswer}"
+      />
+      <button
+        id="check"
+        ?disabled="${this.userAnswer === ''}"
+        @click="${this.checkUserAnswer}"
       >
-        <button class="assignment" ?disabled="${this.disabled}">
-          <simple-icon-lite icon="${this.iconRight}"></simple-icon-lite> ${this
-            .title}
-          <simple-icon-lite icon="${this.iconLeft}"></simple-icon-lite>
-        </button>
-      </a>
+        ${this.t.checkAnswer}
+      </button>
+
+      ${this.showResult
+        ? html`<simple-icon-lite icon="${this.statusIcon}"></simple-icon-lite>
+            <button id="retry" @click="${this.resetCard}">
+              ${this.t.restartActivity}
+            </button>`
+        : ``}
     `;
   }
 }
+
 customElements.define(FlashcardBody.tag, FlashcardBody);
