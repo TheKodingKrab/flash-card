@@ -92,9 +92,13 @@ These are dedicated status check-ins as this is a multi-week project.
    * Modified card style to be more appealing and for the flash card to have a dark mode. 
 -What your next steps are?
 - Next steps:
-  * Taylor: 
-  * Hannah:
-  * Colton: 
+  * Taylor: Support for an image with slotted content, images connected to the questions
+    --Should work with or without an image; this could also be slotted material so that it can be anything
+    --Support for an image / slotted area of flexible content, question being asked, right answer, ability to change color
+  * Hannah: Image to work with or without an image
+  * Colton: Try again and click/retry button
+   --This comp does not have a button for "try again" but needs one for accessibility
+   --Must visualize state for correct and incorrect
   * Evan: Add additional functionality to buttons for changing language, checking user answer, and flipping the card. Need to fix an issue where toggling language doesn't chnage to all languages in locales, need a button to flip the card to only show the correct answer, need to change the check answer button to show different icons when the response is right or wrong. 
   
 
