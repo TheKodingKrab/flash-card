@@ -124,6 +124,10 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
   }
 
   // CSS - specific to Lit
+  // answer-section div needs to be modified not showing up in page
+  // need div class = answer-section then slot in the front and back sections to the card
+  // Currently our card renders the front and back as slots onto the card need to have them flipped
+  // render the image in the shadow root then render the answer box with user inputs
   static get styles() {
     return css`
       :host {
