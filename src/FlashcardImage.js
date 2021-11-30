@@ -124,6 +124,9 @@ export class FlashcardImage extends LitElement {
       if (propName === 'status' && this[propName] === 'pending') {
         this.answerIcon = false;
       }
+      if (propName === 'imgSrc') {
+        this.imgTag = `https://loremflickr.com/320/240/${this.imgSrc}`;
+      }
     });
   }
 
