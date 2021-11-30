@@ -99,9 +99,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     const side = this.back ? 'front' : 'back';
     const comparison = this.shadowRoot
       .querySelector(`[name="${side}"]`)
-      .assignedNodes({ flatten: true })[0]
-      .querySelector(`[name="${side}"]`)
-      .assignedNodes({ flatten: true })[0].innerText;
+      .assignedNodes({ flatten: true })[0];
     this.speech.text = comparison;
     window.speechSynthesis.speak(this.speech);
     this.correct = this.equalsIgnoringCase(comparison);

@@ -126,6 +126,10 @@ export class FlashcardImage extends SimpleColors {
       if (propName === 'status' && this[propName] === 'pending') {
         this.answerIcon = false;
       }
+      if (propName === 'imgSrc') {
+        this.answerIcon = false;
+        /* this last statement needs to be correct to fix the image issue */
+      }
     });
   }
 
