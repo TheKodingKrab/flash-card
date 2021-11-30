@@ -100,12 +100,6 @@ These are dedicated status check-ins as this is a multi-week project.
    --This comp does not have a button for "try again" but needs one for accessibility
    --Must visualize state for correct and incorrect
   * Evan: Add additional functionality to buttons for changing language, checking user answer, and flipping the card. Need to fix an issue where toggling language doesn't chnage to all languages in locales, need a button to flip the card to only show the correct answer, need to change the check answer button to show different icons when the response is right or wrong. 
-  
-
-**Your design should be taking shape** 
-**Your logic layer should be starting to come together**
-**You should at least take a stab at modifying the haxProperties HAXSchema to map to your element and understand that relationship.**
-**TEAMNOTES.md updated to reflect the above + code to actually back up that your not writing things like "we talked a bunch" as I read these and am not dumb.**
 
 
 ### Check-in 4
