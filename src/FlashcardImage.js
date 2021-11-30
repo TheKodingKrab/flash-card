@@ -1,13 +1,13 @@
 /* dependencies / things imported */
-import { LitElement, html, css } from 'lit';
+import { html, css } from 'lit';
 import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
-import '@lrnwebcomponents/simple-colors';
+import { SimpleColors } from '@lrnwebcomponents/simple-colors';
 
 /* EXPORT (so make available to other documents that reference this file) a class, that extends LitElement */
 
 /* which has the magic life-cycles and developer experience below added */
-export class FlashcardImage extends LitElement {
+export class FlashcardImage extends SimpleColors {
   /* a convention I enjoy so you can change the tag name in 1 place */
   static get tag() {
     return 'krusty-image';
