@@ -87,12 +87,20 @@ These are dedicated status check-ins as this is a multi-week project.
    *
 -What insights you gained from the class activity to implement
    * From the in class activity, we gained some insight on a better way to structure out the content of the card for the flashcard. We also have some import suggestions to add as an addition to our flashcard. Correct or incorrect logic also needs to be implemented in order to manage user input. There is still a lot to be done and desired.
+   * Need to render the card body and the answer content seperately. Modify the card into seperate divs with slotted content to improve design. 
+   * Added more language support for i18 such as French and German. 
+   * Modified card style to be more appealing and for the flash card to have a dark mode. 
 -What your next steps are?
 - Next steps:
-  * Taylor: 
-  * Hannah:
-  * Colton: 
-  * Evan:
+  * Taylor: Support for an image with slotted content, images connected to the questions
+    --Should work with or without an image; this could also be slotted material so that it can be anything
+    --Support for an image / slotted area of flexible content, question being asked, right answer, ability to change color
+  * Hannah: Image to work with or without an image
+  * Colton: Try again and click/retry button
+   --This comp does not have a button for "try again" but needs one for accessibility
+   --Must visualize state for correct and incorrect
+  * Evan: Add additional functionality to buttons for changing language, checking user answer, and flipping the card. Need to fix an issue where toggling language doesn't chnage to all languages in locales, need a button to flip the card to only show the correct answer, need to change the check answer button to show different icons when the response is right or wrong. 
+  
 
 **Your design should be taking shape** 
 **Your logic layer should be starting to come together**
