@@ -154,7 +154,7 @@ export class FlashcardImage extends LitElement {
       <div>
         <div class="overlay">
           <div class="backgroundbox">
-            <img src="${this.imgTag}" alt="default img" />
+            <img src="${this.imgTag}" alt="" />
           </div>
         </div>
         ${this.answerIcon
