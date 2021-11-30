@@ -59,6 +59,7 @@ export class KrustyKard extends SimpleColors {
         <slot slot="front" name="front"></slot>
         <slot slot="back" name="back"></slot>
       </flash-card-body>
+      <slot></slot>
     `;
   }
 

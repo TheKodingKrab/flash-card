@@ -21,7 +21,6 @@ export class FlashcardImage extends SimpleColors {
         width: 320px;
         height: 265px;
       }
-
       img {
         display: flex;
         margin: 25px auto auto;
@@ -31,23 +30,18 @@ export class FlashcardImage extends SimpleColors {
         border-radius: 19px;
         box-shadow: 0 0 10px black;
       }
-
       .backgroundbox {
         display: flex;
         background-color: var(--simple-colors-default-theme-blue-11);
-        color: var(
-          --simple-colors-default-theme-accent-3
-        ); // Not sure where these are appearing
+        color: var(--simple-colors-default-theme-accent-3);
         border: 1px var(--simple-colors-default-theme-accent-6);
         border-radius: 19px 19px 0 0;
         height: 265px;
         width: 320px;
       }
-
       .overlay {
         position: relative;
       }
-
       .overlay::before {
         content: '';
         width: 100%;
@@ -56,7 +50,6 @@ export class FlashcardImage extends SimpleColors {
         border: 1px;
         border-radius: 19px 19px 0px 0px;
       }
-
       simple-icon-lite {
         --simple-icon-height: 100px;
         --simple-icon-width: 100px;
@@ -66,18 +59,15 @@ export class FlashcardImage extends SimpleColors {
         left: 50%;
         z-index: 100;
       }
-
       :host([status='pending']) .overlay::before {
         display: flex;
         background: transparent;
       }
-
       :host([status='correct']) .overlay::before {
         display: flex;
         background: green;
         filter: opacity(0.65);
       }
-
       :host([status='incorrect']) .overlay::before {
         display: flex;
         background: red;
@@ -127,8 +117,7 @@ export class FlashcardImage extends SimpleColors {
         this.answerIcon = false;
       }
       if (propName === 'imgSrc') {
-        this.answerIcon = false;
-        /* this last statement needs to be correct to fix the image issue */
+        this.imgTag = `https://loremflickr.com/320/240/${this.imgSrc}`;
       }
     });
   }
@@ -160,7 +149,7 @@ export class FlashcardImage extends SimpleColors {
       <div>
         <div class="overlay">
           <div class="backgroundbox">
-            <img src="${this.imgTag}" alt="default img" />
+            <img src="${this.imgTag}" alt="" />
           </div>
         </div>
         ${this.answerIcon
