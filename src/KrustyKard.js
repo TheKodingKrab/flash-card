@@ -17,7 +17,7 @@ export class KrustyKard extends SimpleColors {
     super();
     setTimeout(() => {
       import('./FlashcardBody.js');
-      // import('./FlashcardImage.js');
+      import('./FlashcardImage.js');
     }, 0);
   }
 
