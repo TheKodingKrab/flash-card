@@ -168,18 +168,8 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         <slot name="front"></slot>
         <slot name="back"></slot>
       </p>
-      <input
-        id="answer"
-        type="text"
-        .placeholder="${this.t.yourAnswer}"
-        @input="${this.inputChanged}"
-        .value="${this.userAnswer}"
-      />
-      <button
-        id="check"
-        ?disabled="${this.userAnswer === ''}"
-        @click="${this.checkUserAnswer}"
-      >
+      <input id="answer" type="text" .placeholder="${this.t.yourAnswer}" @input="${this.inputChanged}" .value="${this.userAnswer}"/>
+      <button id="check" ?disabled="${this.userAnswer === ''}" @click="${this.checkUserAnswer}">
         ${this.t.checkAnswer}
       </button>
 
