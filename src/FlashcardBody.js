@@ -45,6 +45,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
   updated(changedProperties) {
     if (super.updated) {
       super.updated(changedProperties);
+      /*
       changedProperties.forEach((oldValue, propName) => {
         if (propName === 't') {
           this.i18store = window.I18ManagerStore.requestAvailability();
@@ -52,6 +53,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
           console.log(this.speech.lang);
         }
       });
+      */
     }
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'correct') {
@@ -68,7 +70,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       }
     });
   }
-
+  /*
   firstUpdated(changedProperties) {
     if (super.firstUpdated) {
       super.firstUpdated(changedProperties);
@@ -83,6 +85,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         }
       });
   }
+  */
 
   // Need this instead of .toUpperCase() for i18n
   equalsIgnoringCase(text) {
@@ -216,22 +219,20 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         <slot name="front"></slot>
         <slot name="back"></slot>
       </p>
-      <div class="answer selection">
-        <input
-          id="answer"
-          type="text"
-          .placeholder="${this.t.yourAnswer}"
-          @input="${this.inputChanged}"
-          .value="${this.userAnswer}"
-        />
-        <button
-          id="check"
-          ?disabled="${this.userAnswer === ''}"
-          @click="${this.checkUserAnswer}"
-        >
-          ${this.t.checkAnswer}
-        </button>
-      </div>
+      <input
+        id="answer"
+        type="text"
+        .placeholder="${this.t.yourAnswer}"
+        @input="${this.inputChanged}"
+        .value="${this.userAnswer}"
+      />
+      <button
+        id="check"
+        ?disabled="${this.userAnswer === ''}"
+        @click="${this.checkUserAnswer}"
+      >
+        ${this.t.checkAnswer}
+      </button>
 
       ${this.showResult
         ? html`<simple-icon-lite icon="${this.statusIcon}"></simple-icon-lite>
