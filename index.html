@@ -38,6 +38,7 @@
     <li><a href="#">Krusty Kard demo</a></li>
     <li><a href="/hax.html">HAX, card demo</a></li>
   </ul>
+  <button onclick="toggleLanguage();">Change Language</button>
   <div class="wrapper">
     <krusty-kard>
         <p slot="front">What is house in Spanish?</p>
@@ -55,6 +56,25 @@
   <script type="module">
     import "./krusty-kard.js";
     import "./src/FlashcardBody.js";
+  </script>
+  <script>
+    var count =0;
+    function toggleLanguage() {
+      count++ 
+      const i18store = window.I18NManagerStore.requestAvailability();
+      if (count % 4 === 0) {
+        i18store.lang = "en";
+      }
+      if (count % 4 === 1) {
+        i18store.lang = "es";
+      }
+      if (count % 4 === 2) {
+        i18store.lang = "fr";
+      }
+      if (count % 4 === 3) {
+        i18store.lang = "de";
+      } 
+    }
   </script>
 </body>
 
