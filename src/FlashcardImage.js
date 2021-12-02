@@ -21,7 +21,6 @@ export class FlashcardImage extends SimpleColors {
         width: 320px;
         height: 265px;
       }
-
       img {
         display: flex;
         margin: 25px auto auto;
@@ -31,7 +30,6 @@ export class FlashcardImage extends SimpleColors {
         border-radius: 19px;
         box-shadow: 0 0 10px black;
       }
-
       .backgroundbox {
         display: flex;
         background-color: var(--simple-colors-default-theme-blue-11);
@@ -41,11 +39,9 @@ export class FlashcardImage extends SimpleColors {
         height: 265px;
         width: 320px;
       }
-
       .overlay {
         position: relative;
       }
-
       .overlay::before {
         content: '';
         width: 100%;
@@ -54,7 +50,6 @@ export class FlashcardImage extends SimpleColors {
         border: 1px;
         border-radius: 19px 19px 0px 0px;
       }
-
       simple-icon-lite {
         --simple-icon-height: 100px;
         --simple-icon-width: 100px;
@@ -64,18 +59,15 @@ export class FlashcardImage extends SimpleColors {
         left: 50%;
         z-index: 100;
       }
-
       :host([status='pending']) .overlay::before {
         display: flex;
         background: transparent;
       }
-
       :host([status='correct']) .overlay::before {
         display: flex;
         background: green;
         filter: opacity(0.65);
       }
-
       :host([status='incorrect']) .overlay::before {
         display: flex;
         background: red;
