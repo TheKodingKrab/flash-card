@@ -42,7 +42,7 @@ export class KrustyKard extends SimpleColors {
           border-radius: 20px;
           padding: 20px;
           width: 5em;
-          background-color: var(--simple-colors-default-theme-accent-2);
+          background-color: var(--simple-colors-default-theme-accent-1);
           box-shadow: 5px 5px 5px var(--simple-colors-default-theme-accent-1);
         }
         p {
