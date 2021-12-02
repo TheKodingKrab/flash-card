@@ -81,8 +81,8 @@ export class FlashcardImage extends SimpleColors {
   constructor() {
     super();
     /* Take answer and google image return */
-    this.imgSrc = 'grey box';
-    /*                                      W   H    Search Term */
+    this.imgSrc = this.keyword;
+    /*                                     Width Height Search Term */
     this.imgTag = `https://loremflickr.com/320/240/${this.imgSrc}`;
     this.status = 'pending';
     this.answerIcon = false;
