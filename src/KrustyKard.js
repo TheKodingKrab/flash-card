@@ -26,6 +26,7 @@ export class KrustyKard extends SimpleColors {
     return {
       ...super.properties,
       inverted: { type: Boolean },
+      keyword: { type: String },
     };
   }
 
@@ -41,7 +42,7 @@ export class KrustyKard extends SimpleColors {
           border-radius: 20px;
           padding: 20px;
           width: 5em;
-          background-color: var(--simple-colors-default-theme-accent-2);
+          background-color: var(--simple-colors-default-theme-accent-1);
           box-shadow: 5px 5px 5px var(--simple-colors-default-theme-accent-1);
         }
         p {
@@ -54,7 +55,7 @@ export class KrustyKard extends SimpleColors {
   // HTML - specific to Lit
   render() {
     return html`
-      <krusty-image></krusty-image>
+      <krusty-image img-src="${this.keyword}"></krusty-image>
       <flash-card-body>
         <slot slot="front" name="front"></slot>
         <slot slot="back" name="back"></slot>
