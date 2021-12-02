@@ -26,6 +26,7 @@ export class KrustyKard extends SimpleColors {
     return {
       ...super.properties,
       inverted: { type: Boolean },
+      keyword: { type: String },
     };
   }
 
@@ -54,7 +55,7 @@ export class KrustyKard extends SimpleColors {
   // HTML - specific to Lit
   render() {
     return html`
-      <krusty-image></krusty-image>
+      <krusty-image img-src="${this.keyword}"></krusty-image>
       <flash-card-body>
         <slot slot="front" name="front"></slot>
         <slot slot="back" name="back"></slot>
