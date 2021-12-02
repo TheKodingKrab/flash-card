@@ -23,8 +23,12 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     this.registerLocalization({
       context: this,
       localesPath: new URL('../locales/', import.meta.url).href,
-      locales: ['es'],
+      locales: ['es', 'fr', 'de'],
     });
+    this.speech = new SpeechSynthesisUtterance();
+    this.speech.lang = navigator.language.substring(0, 2); // uses language of the browser
+    this.i18store = window.I18NManagerStore.requestAvailability();
+    this.speech.lang = this.i18store.lang;
   }
 
   static get properties() {
