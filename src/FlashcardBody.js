@@ -23,8 +23,12 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     this.registerLocalization({
       context: this,
       localesPath: new URL('../locales/', import.meta.url).href,
-      locales: ['es'],
+      locales: ['es', 'fr', 'de'],
     });
+    this.speech = new SpeechSynthesisUtterance();
+    this.speech.lang = navigator.language.substring(0, 2); // uses language of the browser
+    this.i18store = window.I18NManagerStore.requestAvailability();
+    this.speech.lang = this.i18store.lang;
   }
 
   static get properties() {
@@ -144,10 +148,10 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         color: black;
         font-size: 20px;
       }
-      :host([side-to-show='front']) slot[name='back'] {
+      :host([side-to-show='‘front’']) slot[name='‘back’'] {
         display: none;
       }
-      :host([side-to-show='back']) slot[name='front'] {
+      :host([side-to-show='‘back’']) slot[name='‘front’'] {
         display: none;
       }
       :host([correct]) simple-icon-lite {
@@ -172,7 +176,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       <button id="check" ?disabled="${this.userAnswer === ''}" @click="${this.checkUserAnswer}">
         ${this.t.checkAnswer}
       </button>
-
       ${this.showResult
         ? html`<simple-icon-lite icon="${this.statusIcon}"></simple-icon-lite>
             <button id="retry" @click="${this.resetCard}">
