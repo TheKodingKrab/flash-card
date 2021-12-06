@@ -25,10 +25,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       localesPath: new URL('../locales/', import.meta.url).href,
       locales: ['es', 'fr', 'de'],
     });
-    this.speech = new SpeechSynthesisUtterance();
-    this.speech.lang = navigator.language.substring(0, 2); // uses language of the browser
-    this.i18store = window.I18NManagerStore.requestAvailability();
-    this.speech.lang = this.i18store.lang;
   }
 
   static get properties() {
@@ -107,12 +103,12 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         align-items: center;
       }
       input {
-        border: none;
-        background-color: none;
         padding: 12px;
         margin: 2px;
         border-radius: 20px;
         font-size: 13px;
+        border-color: black;
+        border-width: 2px;
       }
       input:focus {
         outline: none;
@@ -172,8 +168,18 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         <slot name="front"></slot>
         <slot name="back"></slot>
       </p>
-      <input id="answer" type="text" .placeholder="${this.t.yourAnswer}" @input="${this.inputChanged}" .value="${this.userAnswer}"/>
-      <button id="check" ?disabled="${this.userAnswer === ''}" @click="${this.checkUserAnswer}">
+      <input
+        id="answer"
+        type="text"
+        .placeholder="${this.t.yourAnswer}"
+        @input="${this.inputChanged}"
+        .value="${this.userAnswer}"
+      />
+      <button
+        id="check"
+        ?disabled="${this.userAnswer === ''}"
+        @click="${this.checkUserAnswer}"
+      >
         ${this.t.checkAnswer}
       </button>
       ${this.showResult
