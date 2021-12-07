@@ -93,7 +93,8 @@ These are dedicated status check-ins as this is a multi-week project.
 -What your next steps are?
 - Next steps:
   * Taylor: Support for an image with slotted content, images connected to the questions
-    --Should work with or without an image; this could also be slotted material so that it can be anything
+    --Should work with or without an image; this could also be slotted material so that
+    it can be anything
     --Support for an image / slotted area of flexible content, question being asked, right answer, ability to change color
   * Hannah: Image to work with or without an image
   * Colton: Try again and click/retry button
@@ -103,6 +104,20 @@ These are dedicated status check-ins as this is a multi-week project.
 
 
 ### Check-in 4
-- 
+-Progress Made: 
+* Added additional languages to locales and added functionality to change the card language. Added i18n language functionality for Spanish, French, and German. 
+* Fixed an issue with the check answer box where it would only display incorrect after inputting an answer. 
+* Fixed issues with slotting in image content into the flash card body. 
+
+-What needs work: 
+* Need additional hax functionality. Some limited functionality already implemented but it is not fully functional or polished. 
+* Need to be able to create multiple implementations that allow for the card to change color. 
+
+-Final Development Plan: 
+* Debug slotted content issues with elements from the back of the card showing up on the front 
+* Add i18 translation functionality to default card values themselves (ex: "What is house in Spanish" should translate to: "Qu'est-ce que House en espagnol?")
+* Fully Implement Hax functionality. (May need further help on this...) 
+* Add additional stylistic and color changes to make card more appealing
+
 
 
