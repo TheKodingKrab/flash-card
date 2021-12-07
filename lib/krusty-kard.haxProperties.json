@@ -1,34 +1,40 @@
 {
-    "canScale": false,
-    "canPosition": false,
-    "canEditSource": true,
-    "contentEditable": true,
-    "gizmo": {
-      "title": "Krusty Kard",
-      "description": "An element to improve the future of education",
-      "icon": "credit-card",
-      "color": "blue",
-      "groups": ["Content", "Education"]
-    },
-    "settings": {
-      "configure": [
-        {
-          "property": "need",
-          "title": "Need",
-          "description": "What we all need",
-          "inputMethod": "textfield"
-        }
-      ],
-      "advanced": [
-      ]
-    },
-    "demoSchema": [
+  "canScale": false,
+  "canPosition": false,
+  "canEditSource": true,
+  "contentEditable": true,
+  "gizmo": {
+    "title": "Krusty Kard",
+    "description": "An element to improve the future of education",
+    "icon": "credit-card",
+    "color": "blue",
+    "groups": ["Content", "Education"]
+  },
+  "settings": {
+    "configure": [
       {
-        "tag": "krusty-kard",
-        "properties": {
-            "need": "the future"
-        },
-        "content": "<p>Some internal slotted content</p>"
+        "property": "front",
+        "title": "Flash-Card-Question",
+        "description": "The question that the user will be asked",
+        "inputMethod": "textfield"
+      },
+      {
+        "property": "back",
+        "title": "Flash-Card-Answer",
+        "description": "The answer to the question",
+        "inputMethod": "textfield"
       }
+    ],
+    "advanced": [
     ]
-  }
+  },
+  "demoSchema": [
+    {
+      "tag": "krusty-kard",
+      "properties": {
+          "need": "the future"
+      },
+      "content": "<p>Some internal slotted content</p>"
+    }
+  ]
+}

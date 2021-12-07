@@ -27,6 +27,8 @@ export class KrustyKard extends SimpleColors {
       ...super.properties,
       inverted: { type: Boolean },
       keyword: { type: String },
+      front: {type: String },
+      back:{type: String },
     };
   }
 
@@ -57,12 +59,35 @@ export class KrustyKard extends SimpleColors {
     return html`
       <krusty-image img-src="${this.keyword}"></krusty-image>
       <flash-card-body>
-        <slot slot="front" name="front"></slot>
-        <slot slot="back" name="back"></slot>
+      <slot slot="front" name="front"><div slot="front">${this.front}</div></slot>
+      <slot slot="back" name="back"><div slot="back">${this.back}</div></slot>
       </flash-card-body>
     `;
   }
 
+  /**
+ * Implements haxHooks to tie into life-cycle if hax exists.
+ */
+   haxHooks() {
+    return {
+      activeElementChanged: "haxactiveElementChanged",
+    };
+  }
+  /**
+   * double-check that we are set to inactivate click handlers
+   * this is for when activated in a duplicate / adding new content state
+   */
+  haxactiveElementChanged(el, val) {
+    // flag for HAX to not trigger active on changes
+    let container = this.shadowRoot.querySelector("#title");
+    if (val) {
+      container.setAttribute("contenteditable", true);
+    } else {
+      container.removeAttribute("contenteditable");
+      this.title = container.innerText;
+    }
+    return false;
+  }
   // HAX specific callback
   // This teaches HAX how to edit and work with your web component
   /**
