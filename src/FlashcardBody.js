@@ -78,6 +78,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     this.correct = this.equalsIgnoringCase(comparison);
     this.showResult = true;
     this.sideToShow = !this.back ? 'back' : 'front';
+    this.shadowRoot.querySelector('#check').disabled = true;
   }
 
   // as the user types input, grab the value
