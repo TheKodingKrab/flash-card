@@ -25,10 +25,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       localesPath: new URL('../locales', import.meta.url).href,
       locales: ['es', 'fr', 'de'],
     });
-    this.speech = new SpeechSynthesisUtterance();
-    this.speech.lang = navigator.language.substring(0, 2); // uses language of the browser
-    this.i18store = window.I18NManagerStore.requestAvailability();
-    this.speech.lang = this.i18store.lang;
   }
 
   static get properties() {
@@ -104,6 +100,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     this.correct = this.equalsIgnoringCase(comparison);
     this.showResult = true;
     this.sideToShow = !this.back ? 'back' : 'front';
+    this.shadowRoot.querySelector('#check').disabled = true;
   }
 
   // as the user types input, grab the value
@@ -129,12 +126,12 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         align-items: center;
       }
       input {
-        border: none;
-        background-color: none;
         padding: 12px;
         margin: 2px;
         border-radius: 15px;
         font-size: 13px;
+        border-color: black;
+        border-width: 2px;
       }
       input:focus {
         outline: none;
@@ -173,10 +170,10 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         color: black;
         font-size: 25px;
       }
-      :host([side-to-show='‘front’']) slot[name='‘back’'] {
+      :host([side-to-show='front']) slot[name='back'] {
         display: none;
       }
-      :host([side-to-show='‘back’']) slot[name='‘front’'] {
+      :host([side-to-show='back']) slot[name='front'] {
         display: none;
       }
       :host([correct]) simple-icon-lite {
