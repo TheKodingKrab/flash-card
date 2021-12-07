@@ -35,7 +35,7 @@ export class FlashcardImage extends SimpleColors {
         background-color: var(--simple-colors-default-theme-cyan-1);
         color: var(--simple-colors-default-theme-accent-3);
         border: 1px var(--simple-colors-default-theme-accent-6);
-        border-radius: 30px 30px 0 0;
+        border-radius: 30px 30px 30px 30px;
         height: 265px;
         width: 320px;
       }
