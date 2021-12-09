@@ -123,6 +123,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         padding: 10px;
         border-radius: 20px 20px 20px 20px;
         border-width: 1px;
+        border-color: black;
       }
 
       button#retry {
