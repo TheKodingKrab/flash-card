@@ -74,18 +74,21 @@
       // eslint-disable-next-line no-plusplus
       count++ 
       const i18store = window.I18NManagerStore.requestAvailability();
-      if (count % 4 === 0) {
+      if (count % 5 === 0) {
         i18store.lang = "en";
       }
-      if (count % 4 === 1) {
+      if (count % 5 === 1) {
         i18store.lang = "es";
       }
-      if (count % 4 === 2) {
+      if (count % 5 === 2) {
         i18store.lang = "fr";
       }
-      if (count % 4 === 3) {
-        i18store.lang = "pl";
+      if (count % 5 === 3) {
+        i18store.lang = "de";
       } 
+      if (count % 5 === 4) {
+        i18store.lang = "pl";
+      }
       
     }
   </script>
