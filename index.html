@@ -40,6 +40,10 @@
   </ul>
   <!-- Want several other flags with related countries to toggle language of whole card-->
   <button onclick="toggleLanguage();">Change Language</button>
+  <div>
+    <simple-icon icon="flags:us" no-colorize></simple-icon>
+  </div>
+
   <div class="wrapper">
     <krusty-kard keyword="house">
         <p slot="front">What is house in Spanish?</p>
@@ -80,7 +84,7 @@
         i18store.lang = "fr";
       }
       if (count % 4 === 3) {
-        i18store.lang = "de";
+        i18store.lang = "pl";
       } 
       
     }
