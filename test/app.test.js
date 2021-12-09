@@ -13,7 +13,7 @@ describe('FlashCard', () => {
   });
 
   it('renders main content', () => {
-    const para = element.shadowRoot.querySelector('p');
+    const para = element.querySelector('p');
     expect(para).to.exist;
     expect(para.textContent).to.equal('fresa');
   });
