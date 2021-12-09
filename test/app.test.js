@@ -1,18 +1,21 @@
 import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
-import '../rename-me.js';
+import '../krusty-kard.js';
 
-describe('RenameMe', () => {
+describe('FlashCard', () => {
   let element;
   beforeEach(async () => {
-    element = await fixture(html`<rename-me></rename-me>`);
+    element = await fixture(html`<krusty-kard>
+      <span slot="question">What is strawberry in Spanish?</span>
+      <p>fresa</p>
+    </krusty-kard>`);
   });
 
-  it('renders a h1', () => {
-    const h1 = element.shadowRoot.querySelector('h1');
-    expect(h1).to.exist;
-    expect(h1.textContent).to.equal('cool');
+  it('renders main content', () => {
+    const para = element.querySelector('p');
+    expect(para).to.exist;
+    expect(para.textContent).to.equal('fresa');
   });
 
   it('passes the a11y audit', async () => {
