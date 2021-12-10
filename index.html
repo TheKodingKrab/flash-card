@@ -39,9 +39,14 @@
     <li><a href="/hax.html">HAX, card demo</a></li>
   </ul>
   <!-- Want several other flags with related countries to toggle language of whole card-->
-  <button onclick="toggleLanguage();">Change Language</button>
+  
   <div>
-    <simple-icon icon="flags:us" no-colorize></simple-icon>
+        <simple-icon-button icon="flags:us" ></simple-icon>
+          <simple-icon-button icon="flags:us" ></simple-icon>
+            <simple-icon-button icon="flags:us" ></simple-icon>
+              <simple-icon-button icon="flags:us" ></simple-icon>
+      <button onclick="toggleLanguage();">Change Language
+      </button>
   </div>
 
   <div class="wrapper">
@@ -62,9 +67,11 @@
       <p slot="back">colegio</p>
     </krusty-kard>  
   </div>
+  <script src="../../../node_modules/@lrnwebcomponents/deduping-fix/deduping-fix.js"></script>
   <script type="module">
     import "./krusty-kard.js";
-    import "./src/FlashcardBody.js";
+    import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+    import "@lrnwebcomponents/simple-icon/lib/simple-icon-button.js";
   </script>
   <script>
     // eslint-disable-next-line no-var

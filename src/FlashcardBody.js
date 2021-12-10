@@ -1,8 +1,6 @@
 import { I18NMixin } from '@lrnwebcomponents/i18n-manager/lib/I18NMixin.js';
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors';
-// import '@lrnwebcomponents/simple-icon/';
-// import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 
 export class FlashcardBody extends I18NMixin(SimpleColors) {
   static get tag() {
@@ -41,14 +39,13 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     };
   }
 
+  // Change Language functionality here
   updated(changedProperties) {
     if (super.updated) {
       super.updated(changedProperties);
       changedProperties.forEach((oldValue, propName) => {
         if (propName === 't') {
           this.i18store = window.I18NManagerStore.requestAvailability();
-          this.speech.lang = this.i18store.lang;
-          console.log(this.speech.lang);
         }
       });
     }

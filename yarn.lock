@@ -1870,7 +1870,7 @@ __metadata:
     "@lrnwebcomponents/retro-card": ^4.0.4
     "@lrnwebcomponents/self-check": ^4.0.4
     "@lrnwebcomponents/simple-colors": ^4.0.4
-    "@lrnwebcomponents/simple-icon": ^4.0.5
+    "@lrnwebcomponents/simple-icon": ^4.0.6
     "@lrnwebcomponents/wikipedia-query": ^4.0.4
     "@lrnwebcomponents/word-count": ^4.0.4
     "@open-wc/building-rollup": ^1.10.0
@@ -2034,15 +2034,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lrnwebcomponents/simple-colors@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "@lrnwebcomponents/simple-colors@npm:4.0.5"
+"@lrnwebcomponents/simple-colors@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@lrnwebcomponents/simple-colors@npm:4.0.6"
   dependencies:
     "@lrnwebcomponents/a11y-utils": ^4.0.5
     "@lrnwebcomponents/simple-colors-shared-styles": ^4.0.5
-    "@lrnwebcomponents/simple-picker": ^4.0.5
+    "@lrnwebcomponents/simple-picker": ^4.0.6
     lit: ^2.0.2
-  checksum: 1fb6079d83bf1b920990179ec8ae5121c7f67624703b4542cf8e05206f82b04f9edf5b4e3059c1a58488779ca22bd05fbe975080e553671d4594cb56e6282290
+  checksum: d6fc7cc56785d7c6eac0596fd3ca3938b1d8da7d6da21e25a50c92cf1ef66e56830adb3e9d120af034e26ba113f9f8b69f2ccbae0d47881631cda2a53a4bf0cc
   languageName: node
   linkType: hard
 
@@ -2108,14 +2108,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lrnwebcomponents/simple-icon@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "@lrnwebcomponents/simple-icon@npm:4.0.5"
+"@lrnwebcomponents/simple-icon@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@lrnwebcomponents/simple-icon@npm:4.0.6"
   dependencies:
-    "@lrnwebcomponents/simple-colors": ^4.0.5
+    "@lrnwebcomponents/simple-colors": ^4.0.6
     flag-icon-css: 4.1.6
     lit: ^2.0.2
-  checksum: 7a7f848e34f80f75c0c8cbb1db8a0fc5e106474e69777bdf3aa689ad497e676b0e94b08a8cf13b6b09a5910924657be2232bbb836dc0e6d0facbc88357dec853
+  checksum: ccaf420c36656ddf1988992968f42e7bd61410327d40d0c081324a4f98e120bc2d8ac52eca762d87d3ec6fc0eb810dad54a5d2670fe82867e19589cd8096343d
   languageName: node
   linkType: hard
 
@@ -2166,13 +2166,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lrnwebcomponents/simple-picker@npm:^4.0.5":
-  version: 4.0.5
-  resolution: "@lrnwebcomponents/simple-picker@npm:4.0.5"
+"@lrnwebcomponents/simple-picker@npm:^4.0.6":
+  version: 4.0.6
+  resolution: "@lrnwebcomponents/simple-picker@npm:4.0.6"
   dependencies:
-    "@lrnwebcomponents/simple-icon": ^4.0.5
+    "@lrnwebcomponents/simple-icon": ^4.0.6
     lit: ^2.0.2
-  checksum: 8bc55de6affbc57f59ff7f2d964e7990f2981e772e2594485a7658dce6c6cd796787177cd23a0b3c76e24233cc25b585a0e9046885ecf324f7b290a7a4131f0e
+  checksum: 02124d631b1e1e67c0ee2fd1737ef6b6ce0f7bc0cc439ec5325ef61e2aa81c44c698f065d47fb25501d418ca2e0877dbe67032fbf2eae08f30928147a1480774
   languageName: node
   linkType: hard
 
