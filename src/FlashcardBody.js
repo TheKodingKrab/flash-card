@@ -39,15 +39,9 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     };
   }
 
-  // Change Language functionality here
   updated(changedProperties) {
     if (super.updated) {
       super.updated(changedProperties);
-      changedProperties.forEach((oldValue, propName) => {
-        if (propName === 't') {
-          this.i18store = window.I18NManagerStore.requestAvailability();
-        }
-      });
     }
     changedProperties.forEach((oldValue, propName) => {
       if (propName === 'correct') {
@@ -63,21 +57,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         import('@lrnwebcomponents/simple-icon/lib/simple-icons.js');
       }
     });
-  }
-
-  firstUpdated(changedProperties) {
-    if (super.firstUpdated) {
-      super.firstUpdated(changedProperties);
-    }
-    const btn = this.shadowRoot.querySelector('#check');
-    this.shadowRoot
-      .querySelector('#answer')
-      .addEventListener('keyup', event => {
-        if (event.keyCode === 13) {
-          event.preventDefault();
-          btn.click();
-        }
-      });
   }
 
   // Need this instead of .toUpperCase() for i18n
