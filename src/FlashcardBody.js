@@ -36,6 +36,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
       correct: { type: Boolean, reflect: true },
       showResult: { type: Boolean, attribute: 'show-result', reflect: true },
       statusIcon: { type: String, attribute: false },
+      keyword: { type: String },
     };
   }
 

@@ -6,22 +6,41 @@ export default {
   title: 'Krusty Kard',
   component: 'krusty-kard',
   argTypes: {
-    need: { control: 'text' },
+    sideToShow: { 
+      control: 'select',
+      options: ['front', 'back'],
+    },
+    imgSrc: {
+      control: "text"
+    },
+    cardStatus: { control: "text" },
+    front: { control: "text"},
   },
 };
 
-function Template({ need = 'flashcard', slot }) {
-  return html` <krusty-kard need="${need}"> ${slot} </krusty-kard> `;
+function Template({ 
+  sideToShow = 'front', 
+  imgSrc='',
+  cardStatus='',
+  front="",
+  back="",
+  }) {
+  return html` <krusty-kard sideToShow="${sideToShow}" keyword="${imgSrc}" status="${cardStatus}">
+  <p slot="front">${front}</p>
+  <p slot="back">${back}
+  </krusty-kard> `;
+  
 }
+
 export const Card = Template.bind({});
 
 export const FlashCard = Template.bind({});
 FlashCard.args = {
-  need: 'flashcard',
-  imgSrc: { type: String, reflect: true, attribute: 'img-src' },
-  imgTag: { type: String },
-  status: { type: String, reflect: true },
+  sideToShow: 'front',
+  imgSrc: 'school',
+  imgTag: 'https://loremflickr.com/320/240/school',
   answerIcon: { type: Boolean, reflect: true },
   icon: { type: String },
-  slot: html`<p>slotted content that should render</p>`,
+  front: 'What is college in Spanish?',
+  back: 'colegio',
 };
