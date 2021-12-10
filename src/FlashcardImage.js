@@ -6,6 +6,9 @@ import { SimpleColors } from '@lrnwebcomponents/simple-colors';
 
 
 
+
+
+
 export class FlashcardImage extends SimpleColors {
   static get tag() {
     return 'krusty-image';

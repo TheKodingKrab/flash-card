@@ -1,11 +1,3 @@
-
-
-var wizards = ['Hermione', 'Neville', 'Gandalf'];
-
-// Get the app element
-var app = document.querySelector('#app');
-
-// Create markup
-app.innerHTML = '<ul>' + wizards.map(function (wizard) {
-	return '<li>' + wizard + '</li>';
-}).join('') + '</ul>';
+// Map functin can all be done here 
+// Element with array of objects
+// 
