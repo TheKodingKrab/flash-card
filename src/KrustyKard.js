@@ -1,6 +1,9 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors';
 
+
+
+
 export class KrustyKard extends SimpleColors {
   static get tag() {
     return 'krusty-kard';
@@ -19,8 +22,8 @@ export class KrustyKard extends SimpleColors {
       ...super.properties,
       inverted: { type: Boolean },
       keyword: { type: String },
-      front: { type: String },
-      back: { type: String },
+      front: {type: String },
+      back:{type: String },
     };
   }
 
@@ -49,28 +52,25 @@ export class KrustyKard extends SimpleColors {
     return html`
       <krusty-image img-src="${this.keyword}"></krusty-image>
       <flash-card-body>
-        <slot slot="front" name="front"
-          ><div slot="front">${this.front}</div></slot
-        >
-        <slot slot="back" name="back"><div slot="back">${this.back}</div></slot>
+      <slot slot="front" name="front"><div slot="front">${this.front}</div></slot>
+      <slot slot="back" name="back"><div slot="back">${this.back}</div></slot>
       </flash-card-body>
     `;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  haxHooks() {
+
+   haxHooks() {
     return {
-      activeElementChanged: 'haxactiveElementChanged',
+      activeElementChanged: "haxactiveElementChanged",
     };
   }
-
+ 
   haxactiveElementChanged(el, val) {
-    // eslint-disable-next-line prefer-const
-    let container = this.shadowRoot.querySelector('#title');
+    let container = this.shadowRoot.querySelector("#title");
     if (val) {
-      container.setAttribute('contenteditable', true);
+      container.setAttribute("contenteditable", true);
     } else {
-      container.removeAttribute('contenteditable');
+      container.removeAttribute("contenteditable");
       this.title = container.innerText;
     }
     return false;

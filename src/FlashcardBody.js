@@ -1,3 +1,4 @@
+
 import { I18NMixin } from '@lrnwebcomponents/i18n-manager/lib/I18NMixin.js';
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors';

@@ -1,120 +1,40 @@
 {
-    "canScale": false,
-    "canPosition": false,
-    "canEditSource": true,
-    "contentEditable": true,
-    "gizmo": {
-      "title": "Krusty Kard",
-      "description": "An element to improve the future of education",
-      "icon": "credit-card",
-      "color": "blue",
-      "groups": ["Content", "Education"],
-      "handles": [
-        {
-          "type": "image",
-          "source": "image",
-          "title": "question",
-          "description": "answer",
-          "ariaDescribedby": "describedBy"
-        }
-      ],
-      "meta": {
-        "author": "Koder Krabs"
-      }
-    },
-    "settings": {
-      "configure": [
-        {
-          "property": "need",
-          "title": "Need",
-          "description": "What we all need",
-          "inputMethod": "textfield"
-        },
-        {
-          "property": "dark",
-          "title": "Dark Mode",
-          "description": "Idk man I just wanna see if this does anything",
-          "inputMethod": "boolean"
-        },
-        {
-          "property": "image",
-          "title": "Image",
-          "description": "Element Image",
-          "inputMethod": "haxupload"
-        },
-        {
-          "property": "link",
-          "title": "Linky Link",
-          "description": "Link to more info",
-          "inputMethod": "textfield"
-        },
-        {
-          "property": "alt",
-          "title": "Alt Text",
-          "description": "Add alt text to the image",
-          "inputMethod": "alt"
-        },
-        {
-          "slot": "heading",
-          "title": "Title",
-          "inputMethod": "textfield"
-        },
-        {
-          "slot": "question",
-          "title": "Question",
-          "inputMethod": "textfield",
-          "slotWrapper": "p",
-          "allowedSlotWrappers": ["p", "div"],
-          "editMode": {
-            "correct": false
-          }
-        }, 
-        {
-          "slot": "",
-          "title": "Answer",
-          "inputMethod": "textfield",
-          "slotWrapper": "p",
-          "allowedSlotWrappers": ["p", "div"],
-          "editMode": {
-            "correct": true
-          }
-        }
-      ],
-      "advanced": [
-        {
-          "property": "describedBy",
-          "title": "aria-describedby",
-          "description": "Space-separated list of IDs for elements that describe the image.",
-          "inputMethod": "textfield"
-        },
-        {
-          "property": "title",
-          "title": "Title (Deprecated)",
-          "description": "The title of the element",
-          "inputMethod": "textfield"
-        }
-      ]
-    },
-      "saveOptions": {
-        "unsetAttributes": [
-          "colors",
-          "image-loaded",
-          "t",
-          "correct",
-          "element-visible"
-        ]
-      },
-    "demoSchema": [
+  "canScale": false,
+  "canPosition": false,
+  "canEditSource": true,
+  "contentEditable": true,
+  "gizmo": {
+    "title": "Krusty Kard",
+    "description": "An element to improve the future of education",
+    "icon": "credit-card",
+    "color": "blue",
+    "groups": ["Content", "Education"]
+  },
+  "settings": {
+    "configure": [
       {
-        "tag": "krusty-kard",
-        "properties": {
-          "title": "Hope this works",
-          "image": "https://knowyourmeme.com/memes/you-know-i-had-to-do-it-to-em.jpg",
-          "alt": "He really had to do it to em",
-            "need": "the future"
-            
-        },
-        "content": "<p slot=\"question\">Wow, he really had to do it to em huh?</p><p Lucky Luciano changed the game forever></p>"
+        "property": "front",
+        "title": "Flash-Card-Question",
+        "description": "The question that the user will be asked",
+        "inputMethod": "textfield"
+      },
+      {
+        "property": "back",
+        "title": "Flash-Card-Answer",
+        "description": "The answer to the question",
+        "inputMethod": "textfield"
       }
+    ],
+    "advanced": [
     ]
-  }
+  },
+  "demoSchema": [
+    {
+      "tag": "krusty-kard",
+      "properties": {
+          "need": "the future"
+      },
+      "content": "<p>Some internal slotted content</p>"
+    }
+  ]
+}

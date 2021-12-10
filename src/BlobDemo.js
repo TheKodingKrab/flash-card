@@ -1,36 +1,11 @@
-// import {LitElement, html} from 'lit';
-// import {customElement, property, query} from 'lit/decorators.js';
 
-/*
-@customElement('todo-list')
-class BlobDemo extends LitElement {
-  @property()
-  listItems = [
-    { text: 'Start Lit tutorial'},
-    { text: 'Make to-do list'}
-  ];
 
-  render() {
-    return html`
-      <h2>To Do</h2>
-      <ul>
-          ${this.listItems.map((item) =>
-    html`<li>${item.text}</li>`
-  )}
-      </ul>
-      <input id="newitem" aria-label="New item">
-      <button @click=${this.addToDo}>Add</button>
-    `;
-  }
+var wizards = ['Hermione', 'Neville', 'Gandalf'];
 
- @query('#newitem')
-input!: HTMLInputElement;
+// Get the app element
+var app = document.querySelector('#app');
 
-addToDo() {
-  this.listItems.push({text: this.input.value, completed: false});
-  this.input.value = '';
-  this.requestUpdate();
-}
-}
-
-*/
+// Create markup
+app.innerHTML = '<ul>' + wizards.map(function (wizard) {
+	return '<li>' + wizard + '</li>';
+}).join('') + '</ul>';
