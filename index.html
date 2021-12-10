@@ -41,11 +41,11 @@
   <!-- Want several other flags with related countries to toggle language of whole card-->
   
   <div>
-        <simple-icon-button icon="flags:us" ></simple-icon>
-          <simple-icon-button icon="flags:us" ></simple-icon>
-            <simple-icon-button icon="flags:us" ></simple-icon>
-              <simple-icon-button icon="flags:us" ></simple-icon>
-      <button onclick="toggleLanguage();">Change Language
+    <button onclick="toggleLanguage('en');">English<simple-icon icon="flags:us" no-colorize></simple-icon>  
+      <button onclick="toggleLanguage('es');">Español<simple-icon icon="flags:es" no-colorize></simple-icon>
+      <button onclick="toggleLanguage('fr');">Français<simple-icon icon="flags:fr" no-colorize></simple-icon>
+      <button onclick="toggleLanguage('de');">Deutsch<simple-icon icon="flags:de" no-colorize></simple-icon>
+      <button onclick="toggleLanguage('pl');">Polskie<simple-icon icon="flags:pl" no-colorize></simple-icon>
       </button>
   </div>
 
@@ -74,29 +74,9 @@
     import "@lrnwebcomponents/simple-icon/lib/simple-icon-button.js";
   </script>
   <script>
-    // eslint-disable-next-line no-var
-    var count =0;
-    // eslint-disable-next-line no-unused-vars
-    function toggleLanguage() {
-      // eslint-disable-next-line no-plusplus
-      count++ 
+    function toggleLanguage(lang) {
       const i18store = window.I18NManagerStore.requestAvailability();
-      if (count % 5 === 0) {
-        i18store.lang = "en";
-      }
-      if (count % 5 === 1) {
-        i18store.lang = "es";
-      }
-      if (count % 5 === 2) {
-        i18store.lang = "fr";
-      }
-      if (count % 5 === 3) {
-        i18store.lang = "de";
-      } 
-      if (count % 5 === 4) {
-        i18store.lang = "pl";
-      }
-      
+      i18store.lang = lang;
     }
   </script>
 </body>
