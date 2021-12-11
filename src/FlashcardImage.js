@@ -3,12 +3,6 @@ import '@lrnwebcomponents/simple-icon/lib/simple-icons.js';
 import '@lrnwebcomponents/simple-icon/lib/simple-icon-lite.js';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors';
 
-
-
-
-
-
-
 export class FlashcardImage extends SimpleColors {
   static get tag() {
     return 'krusty-image';

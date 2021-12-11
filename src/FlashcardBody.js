@@ -60,7 +60,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     });
   }
 
-  // Need this instead of .toUpperCase() for i18n
   equalsIgnoringCase(text) {
     return (
       text.localeCompare(this.userAnswer, undefined, {
@@ -69,8 +68,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     );
   }
 
-  // Use data-correct-answer so that parent elements will be able to
-  // know if the answer was correct or incorrect
   checkUserAnswer() {
     const side = this.back ? 'front' : 'back';
     const comparison = this.shadowRoot
@@ -82,13 +79,10 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     this.shadowRoot.querySelector('#check').disabled = true;
   }
 
-  // as the user types input, grab the value
-  // this way we can react to disable state among other things
   inputChanged(e) {
     this.userAnswer = e.target.value;
   }
 
-  // reset the interaction to the defaults
   resetCard() {
     this.userAnswer = '';
     this.correct = false;
@@ -96,7 +90,6 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     this.sideToShow = this.back ? 'back' : 'front';
   }
 
-  // CSS - specific to Lit
   static get styles() {
     return css`
       :host {
@@ -110,7 +103,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         border-radius: 15px;
         font-size: 13px;
         border-color: black;
-        border-width: 2px;
+        border-width: 0.1px;
       }
       input:focus {
         outline: none;
@@ -124,6 +117,7 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
         padding: 10px;
         border-radius: 20px 20px 20px 20px;
         border-width: 1px;
+        border-color: black;
       }
 
       button#retry {
