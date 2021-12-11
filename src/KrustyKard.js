@@ -1,5 +1,6 @@
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors';
+
 export class KrustyKard extends SimpleColors {
   static get tag() {
     return 'krusty-kard';

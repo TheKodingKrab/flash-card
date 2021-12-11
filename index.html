@@ -38,6 +38,17 @@
     <li><a href="#">Krusty Kard demo</a></li>
     <li><a href="/hax.html">HAX, card demo</a></li>
   </ul>
+  <!-- Want several other flags with related countries to toggle language of whole card-->
+  
+  <div>
+    <button onclick="toggleLanguage('en');">English<simple-icon icon="flags:us" no-colorize></simple-icon>  
+      <button onclick="toggleLanguage('es');">Español<simple-icon icon="flags:es" no-colorize></simple-icon>
+      <button onclick="toggleLanguage('fr');">Français<simple-icon icon="flags:fr" no-colorize></simple-icon>
+      <button onclick="toggleLanguage('de');">Deutsch<simple-icon icon="flags:de" no-colorize></simple-icon>
+      <button onclick="toggleLanguage('pl');">Polskie<simple-icon icon="flags:pl" no-colorize></simple-icon>
+      </button>
+  </div>
+
   <div class="wrapper">
     <krusty-kard keyword="house">
         <p slot="front">What is house in Spanish?</p>
@@ -56,9 +67,17 @@
       <p slot="back">colegio</p>
     </krusty-kard>  
   </div>
+  <script src="../../../node_modules/@lrnwebcomponents/deduping-fix/deduping-fix.js"></script>
   <script type="module">
     import "./krusty-kard.js";
-    import "./src/FlashcardBody.js";
+    import "@lrnwebcomponents/simple-icon/lib/simple-icons.js";
+    import "@lrnwebcomponents/simple-icon/lib/simple-icon-button.js";
+  </script>
+  <script>
+    function toggleLanguage(lang) {
+      const i18store = window.I18NManagerStore.requestAvailability();
+      i18store.lang = lang;
+    }
   </script>
 </body>
 </html>

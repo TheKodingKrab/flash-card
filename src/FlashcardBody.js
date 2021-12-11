@@ -1,3 +1,4 @@
+
 import { I18NMixin } from '@lrnwebcomponents/i18n-manager/lib/I18NMixin.js';
 import { html, css } from 'lit';
 import { SimpleColors } from '@lrnwebcomponents/simple-colors';
@@ -22,8 +23,8 @@ export class FlashcardBody extends I18NMixin(SimpleColors) {
     };
     this.registerLocalization({
       context: this,
-      localesPath: new URL('../locales/', import.meta.url).href,
-      locales: ['es', 'fr', 'de'],
+      localesPath: new URL('../locales', import.meta.url).href,
+      locales: ['es', 'fr', 'de', 'pl'],
     });
   }
 
