@@ -72,7 +72,6 @@ export class FlashcardImage extends SimpleColors {
 
   constructor() {
     super();
-    this.imgSrc = this.keyword;
     this.imgTag = `https://loremflickr.com/320/240/${this.imgSrc}`;
     this.status = 'pending';
     this.answerIcon = false;
@@ -105,6 +104,7 @@ export class FlashcardImage extends SimpleColors {
       }
       if (propName === 'imgSrc') {
         this.imgTag = `https://loremflickr.com/320/240/${this.imgSrc}`;
+        console.log('updated',this.imgTag,this.imgSrc);
       }
     });
   }

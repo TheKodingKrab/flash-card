@@ -21,6 +21,7 @@ export class KrustyKard extends SimpleColors {
       keyword: { type: String },
       front: {type: String },
       back:{type: String },
+      sideToShow: { type: String, reflect: true, attribute: 'side-to-show' },
     };
   }
 
@@ -48,7 +49,7 @@ export class KrustyKard extends SimpleColors {
   render() {
     return html`
       <krusty-image img-src="${this.keyword}"></krusty-image>
-      <flash-card-body>
+      <flash-card-body sideToShow='${this.sideToShow}'>
       <slot slot="front" name="front"><div slot="front">${this.front}</div></slot>
       <slot slot="back" name="back"><div slot="back">${this.back}</div></slot>
       </flash-card-body>
